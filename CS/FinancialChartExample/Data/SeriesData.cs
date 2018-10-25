@@ -27,6 +27,7 @@ namespace FinancialChartExample.Data {
         }
         public double GetNumericArgument(int index) { return 0; }
         public string GetQualitativeArgument(int index) { return string.Empty; }
+        public object GetKey(int index) => null;
     }
 
     public class CalculatedSeriesData : BindableObject, ICalculatedSeriesData {
