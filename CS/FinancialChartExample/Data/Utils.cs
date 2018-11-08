@@ -1,4 +1,4 @@
-﻿using DevExpress.XF.Charts;
+﻿using DevExpress.XamarinForms.Charts;
 
 namespace FinancialChartExample.Data {
     class AxisLabelTextFormatter : IAxisLabelTextFormatter {

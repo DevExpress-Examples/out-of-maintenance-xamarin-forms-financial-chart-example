@@ -1,4 +1,4 @@
-﻿using DevExpress.XF.Charts;
+﻿using DevExpress.XamarinForms.Charts;
 using FinancialChartExample.Data;
 
 namespace FinancialChartExample.ViewModels {
@@ -16,8 +16,8 @@ namespace FinancialChartExample.ViewModels {
         public MainViewModel(ChartView chart) {
             StockPrices stockPrices = StockData.GetStockPrices();
             calculatedSeriesData = new CalculatedSeriesData(chart);
-            stockSeriesData = new XYSeriesData(stockPrices, DevExpress.XF.Charts.SeriesDataType.Financial);
-            volumeSeriesData = new XYSeriesData(stockPrices, DevExpress.XF.Charts.SeriesDataType.DateTime);
+            stockSeriesData = new XYSeriesData(stockPrices, DevExpress.XamarinForms.Charts.SeriesDataType.Financial);
+            volumeSeriesData = new XYSeriesData(stockPrices, DevExpress.XamarinForms.Charts.SeriesDataType.DateTime);
             visualRange = new DateTimeRange() { VisualMin = new System.DateTime(2016, 7, 29), VisualMax = new System.DateTime(2016, 10, 15) };
         }
     }

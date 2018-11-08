@@ -1,5 +1,5 @@
 ﻿using System;
-using DevExpress.XF.Charts;
+using DevExpress.XamarinForms.Charts;
 using Xamarin.Forms;
 
 namespace FinancialChartExample.Data {
@@ -15,13 +15,13 @@ namespace FinancialChartExample.Data {
         public int GetDataCount() => stockPrices.Count;
         public SeriesDataType GetDataType() => seriesDataType;
         public DateTime GetDateTimeArgument(int index) => stockPrices[index].Date;
-        public double GetValue(DevExpress.XF.Charts.ValueType valueType, int index) {
+        public double GetValue(DevExpress.XamarinForms.Charts.ValueType valueType, int index) {
             switch (valueType) {
-                case DevExpress.XF.Charts.ValueType.Value: return stockPrices[index].Volume;
-                case DevExpress.XF.Charts.ValueType.High: return stockPrices[index].High;
-                case DevExpress.XF.Charts.ValueType.Low: return stockPrices[index].Low;
-                case DevExpress.XF.Charts.ValueType.Open: return stockPrices[index].Open;
-                case DevExpress.XF.Charts.ValueType.Close: return stockPrices[index].Close;
+                case DevExpress.XamarinForms.Charts.ValueType.Value: return stockPrices[index].Volume;
+                case DevExpress.XamarinForms.Charts.ValueType.High: return stockPrices[index].High;
+                case DevExpress.XamarinForms.Charts.ValueType.Low: return stockPrices[index].Low;
+                case DevExpress.XamarinForms.Charts.ValueType.Open: return stockPrices[index].Open;
+                case DevExpress.XamarinForms.Charts.ValueType.Close: return stockPrices[index].Close;
             }
             return 0;
         }

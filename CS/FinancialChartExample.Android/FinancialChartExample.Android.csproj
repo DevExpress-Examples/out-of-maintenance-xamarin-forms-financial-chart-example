@@ -50,12 +50,12 @@
     <Reference Include="Devexpress.Xamarin.Android.Charts">
       <HintPath>..\..\Bin\Devexpress.Xamarin.Android.Charts.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XF.Charts.Android">
-      <HintPath>..\..\Bin\DevExpress.XF.Charts.Android.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.Charts.Android">
+      <HintPath>..\..\Bin\DevExpress.XamarinForms.Charts.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
