@@ -14,11 +14,6 @@
     <PackageReference Include="DevExpress.XamarinForms.Charts" Version="19.2.3" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.XamarinForms.Charts">
-      <HintPath>..\..\Bin\DevExpress.XamarinForms.Charts.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Files\" />
     <Folder Include="ViewModels\" />

@@ -146,12 +146,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="DevExpress.Xamarin.iOS.Charts">
-      <HintPath>..\..\Bin\DevExpress.Xamarin.iOS.Charts.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XamarinForms.Charts.iOS">
-      <HintPath>..\..\Bin\DevExpress.XamarinForms.Charts.iOS.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />

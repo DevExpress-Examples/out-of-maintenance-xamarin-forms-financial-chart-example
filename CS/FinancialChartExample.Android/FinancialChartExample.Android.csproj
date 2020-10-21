@@ -47,12 +47,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
-    <Reference Include="Devexpress.Xamarin.Android.Charts">
-      <HintPath>..\..\Bin\Devexpress.Xamarin.Android.Charts.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XamarinForms.Charts.Android">
-      <HintPath>..\..\Bin\DevExpress.XamarinForms.Charts.Android.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
