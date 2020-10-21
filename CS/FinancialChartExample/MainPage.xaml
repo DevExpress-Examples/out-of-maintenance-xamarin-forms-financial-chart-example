@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage x:Class="FinancialChartExample.MainPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             xmlns:local="clr-namespace:FinancialChartExample"
-             xmlns:vm="clr-namespace:FinancialChartExample.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:data="clr-namespace:FinancialChartExample.Data"
              xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
              Title="Financial Chart Demo"
@@ -72,7 +69,7 @@
                             TextFormat="$#"/>
                     </charts:NumericAxisY.Label>
                 </charts:NumericAxisY>
-            </charts:ChartView.AxisY>>
+            </charts:ChartView.AxisY>
             <charts:ChartView.AxisX>
                 <charts:DateTimeAxisX Synchronizer="{StaticResource synchronizer}"
                                       Range="{Binding VisualRange}"
@@ -117,7 +114,7 @@
                             Position="Inside"/>
                     </charts:NumericAxisY.Label>
                 </charts:NumericAxisY>
-            </charts:ChartView.AxisY>>
+            </charts:ChartView.AxisY>
             <charts:ChartView.Hint>
                 <charts:Hint>
                     <charts:Hint.Behavior>
