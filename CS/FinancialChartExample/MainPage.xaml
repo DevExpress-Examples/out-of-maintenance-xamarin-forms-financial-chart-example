@@ -12,8 +12,15 @@
 
         <charts:ChartView.Series>
 
-            <charts:CandleStickSeries Data="{Binding StockSeriesData}"
-                                      DisplayName="Price">
+            <charts:CandleStickSeries DisplayName="Price">
+                <charts:CandleStickSeries.Data>
+                    <charts:SeriesDataAdapter DataSource="{Binding StockPrices}" ArgumentDataMember="Date">
+                        <charts:ValueDataMember Type="High" Member="High" />
+                        <charts:ValueDataMember Type="Low" Member="Low" />
+                        <charts:ValueDataMember Type="Open" Member="Open" />
+                        <charts:ValueDataMember Type="Close" Member="Close" />
+                    </charts:SeriesDataAdapter>
+                </charts:CandleStickSeries.Data>
                 <charts:CandleStickSeries.HintOptions>
                     <charts:SeriesCrosshairOptions PointTextPattern="High: ${H$###.##}&#10;Low: ${L$###.##}&#10;Open: ${O$###.##}&#10;Close: ${C$###.##}" />
                 </charts:CandleStickSeries.HintOptions>
@@ -48,6 +55,12 @@
             </charts:MovingAverageIndicator>
 
             <charts:BarSeries DisplayName="Volume" Data="{Binding VolumeSeriesData}">
+                <charts:BarSeries.Data>
+                    <charts:SeriesDataAdapter DataSource="{Binding StockPrices}" ArgumentDataMember="Date">
+                        <charts:ValueDataMember Type="Value" Member="Volume" />
+                    </charts:SeriesDataAdapter>
+                </charts:BarSeries.Data>
+
                 <charts:BarSeries.HintOptions>
                     <charts:SeriesCrosshairOptions PointTextPattern="Volume: ${V$#,###}" />
                 </charts:BarSeries.HintOptions>
@@ -72,8 +85,8 @@
                         </charts:NumericAxisY.Label>
                         <charts:NumericAxisY.Style>
                             <charts:AxisStyle MajorGridlinesVisible="True"
-                                                LineColor="#8f2196F3"
-                                                MajorGridlinesColor="#8f2196F3"/>
+                                              LineColor="#8f2196F3"
+                                              MajorGridlinesColor="#8f2196F3"/>
                         </charts:NumericAxisY.Style>
                     </charts:NumericAxisY>
                 </charts:BarSeries.AxisY>
