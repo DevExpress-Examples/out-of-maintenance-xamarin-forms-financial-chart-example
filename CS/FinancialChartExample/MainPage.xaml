@@ -15,7 +15,7 @@
             <charts:CandleStickSeries Data="{Binding StockSeriesData}"
                                       DisplayName="Price">
                 <charts:CandleStickSeries.HintOptions>
-                    <charts:SeriesCrosshairOptions PointTextPattern="High:   ${H$###.##}&#10;Open:   ${O$###.##}&#10;Low:    ${L$###.##}&#10;Close:  ${C$###.##}" />
+                    <charts:SeriesCrosshairOptions PointTextPattern="High: ${H$###.##}&#10;Low: ${L$###.##}&#10;Open: ${O$###.##}&#10;Close: ${C$###.##}" />
                 </charts:CandleStickSeries.HintOptions>
             </charts:CandleStickSeries>
                 
@@ -30,7 +30,7 @@
                                                          LowerStroke="#e95ddc" />
                 </charts:BollingerBandsIndicator.Style>
                 <charts:CandleStickSeries.HintOptions>
-                    <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: &#10;High:   ${HV$###.##}&#10;Value:  ${V$###.##}&#10;Low:    ${LV$###.##}" />
+                    <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: &#10;Upper: ${UV$###.##}&#10;Value: ${V$###.##}&#10;Lower: ${LV$###.##}" />
                 </charts:CandleStickSeries.HintOptions>
             </charts:BollingerBandsIndicator>
                 
@@ -103,7 +103,7 @@
         <charts:ChartView.Hint>
             <charts:Hint>
                 <charts:Hint.Behavior>
-                    <charts:CrosshairHintBehavior MaxSeriesCount="3" />
+                    <charts:CrosshairHintBehavior MaxSeriesCount="4" />
                 </charts:Hint.Behavior>
             </charts:Hint>
         </charts:ChartView.Hint>
