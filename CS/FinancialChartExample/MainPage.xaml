@@ -14,49 +14,7 @@
 
         <charts:ChartView.Series>
 
-            <charts:CandleStickSeries DisplayName="Price">
-                <charts:CandleStickSeries.Data>
-                    <charts:SeriesDataAdapter DataSource="{Binding StockPrices}" ArgumentDataMember="Date">
-                        <charts:ValueDataMember Type="High" Member="High" />
-                        <charts:ValueDataMember Type="Low" Member="Low" />
-                        <charts:ValueDataMember Type="Open" Member="Open" />
-                        <charts:ValueDataMember Type="Close" Member="Close" />
-                    </charts:SeriesDataAdapter>
-                </charts:CandleStickSeries.Data>
-                <charts:CandleStickSeries.HintOptions>
-                    <charts:SeriesCrosshairOptions PointTextPattern="High: ${H$###.##}&#10;Low: ${L$###.##}&#10;Open: ${O$###.##}&#10;Close: ${C$###.##}" />
-                </charts:CandleStickSeries.HintOptions>
-            </charts:CandleStickSeries>
-                
-            <charts:BollingerBandsIndicator DisplayName="BollingerBands 10"
-                                            PointsCount="10">
-                <charts:BollingerBandsIndicator.Data>
-                    <charts:CalculatedSeriesDataAdapter Series="{Binding Series[0], Source={x:Reference chart}}"/>
-                </charts:BollingerBandsIndicator.Data>
-                <charts:BollingerBandsIndicator.Style>
-                    <charts:BollingerBandsIndicatorStyle Stroke="#e95ddc"
-                                                         UpperStroke="#e95ddc"
-                                                         LowerStroke="#e95ddc" />
-                </charts:BollingerBandsIndicator.Style>
-                <charts:CandleStickSeries.HintOptions>
-                    <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: &#10;Upper: ${UV$###.##}&#10;Value: ${V$###.##}&#10;Lower: ${LV$###.##}" />
-                </charts:CandleStickSeries.HintOptions>
-            </charts:BollingerBandsIndicator>
-                
-            <charts:MovingAverageIndicator DisplayName="SMA 50"
-                                           PointsCount="50">
-                <charts:MovingAverageIndicator.Data>
-                    <charts:CalculatedSeriesDataAdapter Series="{Binding Series[0], Source={x:Reference chart}}"/>
-                </charts:MovingAverageIndicator.Data>
-                <charts:MovingAverageIndicator.Style>
-                    <charts:BollingerBandsIndicatorStyle Stroke="#9859c9" />
-                </charts:MovingAverageIndicator.Style>
-                <charts:CandleStickSeries.HintOptions>
-                    <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: ${V$###.##}" />
-                </charts:CandleStickSeries.HintOptions>
-            </charts:MovingAverageIndicator>
-
-            <charts:BarSeries DisplayName="Volume" Data="{Binding VolumeSeriesData}">
+            <charts:BarSeries DisplayName="Volume">
                 <charts:BarSeries.Data>
                     <charts:SeriesDataAdapter DataSource="{Binding StockPrices}" ArgumentDataMember="Date">
                         <charts:ValueDataMember Type="Value" Member="Volume" />
@@ -93,6 +51,48 @@
                     </charts:NumericAxisY>
                 </charts:BarSeries.AxisY>
             </charts:BarSeries>
+
+            <charts:CandleStickSeries DisplayName="Price">
+                <charts:CandleStickSeries.Data>
+                    <charts:SeriesDataAdapter DataSource="{Binding StockPrices}" ArgumentDataMember="Date">
+                        <charts:ValueDataMember Type="High" Member="High" />
+                        <charts:ValueDataMember Type="Low" Member="Low" />
+                        <charts:ValueDataMember Type="Open" Member="Open" />
+                        <charts:ValueDataMember Type="Close" Member="Close" />
+                    </charts:SeriesDataAdapter>
+                </charts:CandleStickSeries.Data>
+                <charts:CandleStickSeries.HintOptions>
+                    <charts:SeriesCrosshairOptions PointTextPattern="High: ${H$###.##}&#10;Low: ${L$###.##}&#10;Open: ${O$###.##}&#10;Close: ${C$###.##}" />
+                </charts:CandleStickSeries.HintOptions>
+            </charts:CandleStickSeries>
+                
+            <charts:BollingerBandsIndicator DisplayName="BollingerBands 10"
+                                            PointsCount="10">
+                <charts:BollingerBandsIndicator.Data>
+                    <charts:CalculatedSeriesDataAdapter Series="{Binding Series[1], Source={x:Reference chart}}"/>
+                </charts:BollingerBandsIndicator.Data>
+                <charts:BollingerBandsIndicator.Style>
+                    <charts:BollingerBandsIndicatorStyle Stroke="#e95ddc"
+                                                         UpperStroke="#e95ddc"
+                                                         LowerStroke="#e95ddc" />
+                </charts:BollingerBandsIndicator.Style>
+                <charts:CandleStickSeries.HintOptions>
+                    <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: &#10;Upper: ${UV$###.##}&#10;Value: ${V$###.##}&#10;Lower: ${LV$###.##}" />
+                </charts:CandleStickSeries.HintOptions>
+            </charts:BollingerBandsIndicator>
+                
+            <charts:MovingAverageIndicator DisplayName="SMA 50"
+                                           PointsCount="50">
+                <charts:MovingAverageIndicator.Data>
+                    <charts:CalculatedSeriesDataAdapter Series="{Binding Series[1], Source={x:Reference chart}}"/>
+                </charts:MovingAverageIndicator.Data>
+                <charts:MovingAverageIndicator.Style>
+                    <charts:BollingerBandsIndicatorStyle Stroke="#9859c9" />
+                </charts:MovingAverageIndicator.Style>
+                <charts:CandleStickSeries.HintOptions>
+                    <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: ${V$###.##}" />
+                </charts:CandleStickSeries.HintOptions>
+            </charts:MovingAverageIndicator>
                 
         </charts:ChartView.Series>
 
