@@ -2,126 +2,116 @@
 <ContentPage x:Class="FinancialChartExample.MainPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:data="clr-namespace:FinancialChartExample.Data"
              xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
              Title="Financial Chart Demo"
-             BackgroundColor="White"
-             >
-    <ContentPage.Resources>
-        <charts:ChartSynchronizer x:Key="synchronizer"/>
-    </ContentPage.Resources>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <charts:ChartView x:Name="chart"
-                          Grid.Row="0"
-                          SelectionMode="None"
-                          AxisXNavigationMode="Scrolling"
-                          ScrollIndicatorsEnabled="false">
-            <charts:ChartView.Legend>
-                <charts:Legend HorizontalPosition="Left"
-                               VerticalPosition="Top"/>
-            </charts:ChartView.Legend>
-            <charts:ChartView.Series>
-                <charts:CandleStickSeries Data="{Binding StockSeriesData}"
-                                          DisplayName="Google Inc."
-                                          VisibleInLegend="false">
-                    <charts:CandleStickSeries.HintOptions>
-                        <charts:SeriesCrosshairOptions PointTextPattern="High:   ${H$###.##}&#10;Open:   ${O$###.##}&#10;Low:    ${L$###.##}&#10;Close:  ${C$###.##}" />
-                    </charts:CandleStickSeries.HintOptions>
-                </charts:CandleStickSeries>
+             BackgroundColor="White">
+
+    <charts:ChartView x:Name="chart"
+                      SelectionMode="None"
+                      AxisXNavigationMode="Scrolling">
+
+        <charts:ChartView.Series>
+
+            <charts:CandleStickSeries Data="{Binding StockSeriesData}"
+                                      DisplayName="Price">
+                <charts:CandleStickSeries.HintOptions>
+                    <charts:SeriesCrosshairOptions PointTextPattern="High:   ${H$###.##}&#10;Open:   ${O$###.##}&#10;Low:    ${L$###.##}&#10;Close:  ${C$###.##}" />
+                </charts:CandleStickSeries.HintOptions>
+            </charts:CandleStickSeries>
                 
-                <charts:BollingerBandsIndicator Data="{Binding CalculatedSeriesData}"
-                                                DisplayName="BollingerBands 10"
-                                                PointsCount="10">
-                    <charts:BollingerBandsIndicator.Style>
-                        <charts:BollingerBandsIndicatorStyle Stroke="#e95ddc"
-                                                             UpperStroke="#e95ddc"
-                                                             LowerStroke="#e95ddc" />
-                    </charts:BollingerBandsIndicator.Style>
-                    <charts:CandleStickSeries.HintOptions>
-                        <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: &#10;High:   ${HV$###.##}&#10;Value:  ${V$###.##}&#10;Low:    ${LV$###.##}" />
-                    </charts:CandleStickSeries.HintOptions>
-                </charts:BollingerBandsIndicator>
+            <charts:BollingerBandsIndicator DisplayName="BollingerBands 10"
+                                            PointsCount="10">
+                <charts:BollingerBandsIndicator.Data>
+                    <charts:CalculatedSeriesDataAdapter Series="{Binding Series[0], Source={x:Reference chart}}"/>
+                </charts:BollingerBandsIndicator.Data>
+                <charts:BollingerBandsIndicator.Style>
+                    <charts:BollingerBandsIndicatorStyle Stroke="#e95ddc"
+                                                         UpperStroke="#e95ddc"
+                                                         LowerStroke="#e95ddc" />
+                </charts:BollingerBandsIndicator.Style>
+                <charts:CandleStickSeries.HintOptions>
+                    <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: &#10;High:   ${HV$###.##}&#10;Value:  ${V$###.##}&#10;Low:    ${LV$###.##}" />
+                </charts:CandleStickSeries.HintOptions>
+            </charts:BollingerBandsIndicator>
                 
-                <charts:MovingAverageIndicator Data="{Binding CalculatedSeriesData}"
-                                               DisplayName="SMA 50"
-                                               PointsCount="50">
-                    <charts:MovingAverageIndicator.Style>
-                        <charts:BollingerBandsIndicatorStyle Stroke="#9859c9" />
-                    </charts:MovingAverageIndicator.Style>
-                    <charts:CandleStickSeries.HintOptions>
-                        <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: ${V$###.##}" />
-                    </charts:CandleStickSeries.HintOptions>
-                </charts:MovingAverageIndicator>
+            <charts:MovingAverageIndicator DisplayName="SMA 50"
+                                           PointsCount="50">
+                <charts:MovingAverageIndicator.Data>
+                    <charts:CalculatedSeriesDataAdapter Series="{Binding Series[0], Source={x:Reference chart}}"/>
+                </charts:MovingAverageIndicator.Data>
+                <charts:MovingAverageIndicator.Style>
+                    <charts:BollingerBandsIndicatorStyle Stroke="#9859c9" />
+                </charts:MovingAverageIndicator.Style>
+                <charts:CandleStickSeries.HintOptions>
+                    <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: ${V$###.##}" />
+                </charts:CandleStickSeries.HintOptions>
+            </charts:MovingAverageIndicator>
+
+            <charts:BarSeries DisplayName="Volume" Data="{Binding VolumeSeriesData}">
+                <charts:BarSeries.HintOptions>
+                    <charts:SeriesCrosshairOptions PointTextPattern="Volume: ${V$#,###}" />
+                </charts:BarSeries.HintOptions>
+
+                <charts:BarSeries.Style>
+                    <charts:BarSeriesStyle Fill="#ff2196F3"/>
+                </charts:BarSeries.Style>
+
+                <charts:BarSeries.AxisY>
+                    <charts:NumericAxisY>
+                        <charts:NumericAxisY.LabelValueNotation>
+                            <charts:AxisLabelEngineeringNotation/>
+                        </charts:NumericAxisY.LabelValueNotation>
+                        <charts:NumericAxisY.Layout>
+                            <charts:AxisLayout Anchor1="0" Anchor2="0.25" />
+                        </charts:NumericAxisY.Layout>
+                        <charts:NumericAxisY.DisplayPosition>
+                            <charts:AxisDisplayPositionNear/>
+                        </charts:NumericAxisY.DisplayPosition>
+                        <charts:NumericAxisY.Label>
+                            <charts:AxisLabel Position="Inside" TextFormat="$#"/>
+                        </charts:NumericAxisY.Label>
+                        <charts:NumericAxisY.Style>
+                            <charts:AxisStyle MajorGridlinesVisible="True"
+                                                LineColor="#8f2196F3"
+                                                MajorGridlinesColor="#8f2196F3"/>
+                        </charts:NumericAxisY.Style>
+                    </charts:NumericAxisY>
+                </charts:BarSeries.AxisY>
+            </charts:BarSeries>
                 
-            </charts:ChartView.Series>
-            <charts:ChartView.AxisY>
-                <charts:NumericAxisY
-                    AlwaysShowZeroLevel="false"
-                    Position="Far">
-                    <charts:NumericAxisY.Label>
-                        <charts:AxisLabel
-                            Position="Inside"
-                            TextFormat="$#"/>
-                    </charts:NumericAxisY.Label>
-                </charts:NumericAxisY>
-            </charts:ChartView.AxisY>
-            <charts:ChartView.AxisX>
-                <charts:DateTimeAxisX Synchronizer="{StaticResource synchronizer}"
-                                      Range="{Binding VisualRange}"
-                                      MeasureUnit="Day">
-                    <charts:DateTimeAxisX.Label>
-                        <charts:AxisLabel Visible="false" />
-                    </charts:DateTimeAxisX.Label>
-                </charts:DateTimeAxisX>
-            </charts:ChartView.AxisX>
-            <charts:ChartView.Hint>
-                <charts:Hint>
-                    <charts:Hint.Behavior>
-                        <charts:CrosshairHintBehavior MaxSeriesCount="3" />
-                    </charts:Hint.Behavior>
-                </charts:Hint>
-            </charts:ChartView.Hint>
-        </charts:ChartView>
-        <charts:ChartView Grid.Row="1"
-                          AxisXNavigationMode="Scrolling">
-            <charts:ChartView.Legend>
-                <charts:Legend HorizontalPosition="Left"
-                               VerticalPosition="Top"/>
-            </charts:ChartView.Legend>
-            <charts:ChartView.Series>
-                <charts:BarSeries
-                                  Data="{Binding VolumeSeriesData}"
-                                  DisplayName="Volume">
-                </charts:BarSeries>
-            </charts:ChartView.Series>
-            <charts:ChartView.AxisX>
-                <charts:DateTimeAxisX Synchronizer="{StaticResource synchronizer}"
-                                      Range="{Binding VisualRange}">
-                </charts:DateTimeAxisX>
-            </charts:ChartView.AxisX>
-            <charts:ChartView.AxisY>
-                <charts:NumericAxisY
-                    AlwaysShowZeroLevel="false"
-                    Position="Far"
-                    LabelTextFormatter="{data:AxisLabelTextFormatter}">
-                    <charts:NumericAxisY.Label>
-                        <charts:AxisLabel
-                            Position="Inside"/>
-                    </charts:NumericAxisY.Label>
-                </charts:NumericAxisY>
-            </charts:ChartView.AxisY>
-            <charts:ChartView.Hint>
-                <charts:Hint>
-                    <charts:Hint.Behavior>
-                        <charts:CrosshairHintBehavior/>
-                    </charts:Hint.Behavior>
-                </charts:Hint>
-            </charts:ChartView.Hint>
-        </charts:ChartView>
-    </Grid>
+        </charts:ChartView.Series>
+
+        <charts:ChartView.AxisY>
+            <charts:NumericAxisY AlwaysShowZeroLevel="False"
+                                 AutoRangeMode="VisibleValues">
+                <charts:NumericAxisY.DisplayPosition>
+                    <charts:AxisDisplayPositionFar />
+                </charts:NumericAxisY.DisplayPosition>
+                <charts:NumericAxisY.Label>
+                    <charts:AxisLabel Position="Inside"
+                                      TextFormat="$#"/>
+                </charts:NumericAxisY.Label>
+            </charts:NumericAxisY>
+        </charts:ChartView.AxisY>
+
+        <charts:ChartView.AxisX>
+            <charts:DateTimeAxisX Range="{Binding VisualRange}"
+                                  MeasureUnit="Day"
+                                  EmptyRangesVisible="False"/>
+        </charts:ChartView.AxisX>
+
+        <charts:ChartView.Hint>
+            <charts:Hint>
+                <charts:Hint.Behavior>
+                    <charts:CrosshairHintBehavior MaxSeriesCount="3" />
+                </charts:Hint.Behavior>
+            </charts:Hint>
+        </charts:ChartView.Hint>
+
+        <charts:ChartView.Legend>
+            <charts:Legend HorizontalPosition="Left"
+                           VerticalPosition="Top" />
+        </charts:ChartView.Legend>
+
+    </charts:ChartView>
 </ContentPage>

@@ -5,7 +5,7 @@ namespace FinancialChartExample {
     public partial class MainPage : ContentPage {
         public MainPage() {
             InitializeComponent();
-            BindingContext = new MainViewModel(chart);
+            BindingContext = new MainViewModel();
         }
     }
 }

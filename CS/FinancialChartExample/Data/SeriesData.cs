@@ -31,14 +31,11 @@ namespace FinancialChartExample.Data {
     }
 
     public class CalculatedSeriesData : BindableObject, ICalculatedSeriesData {
-        readonly ChartView chart;
-
-        public CalculatedSeriesData(ChartView chart) {
-            this.chart = chart;
+        public CalculatedSeriesData() {
         }
 
         public Series Series {
-            get => chart.Series[0];
+            get => null;
         }
     }
 }
