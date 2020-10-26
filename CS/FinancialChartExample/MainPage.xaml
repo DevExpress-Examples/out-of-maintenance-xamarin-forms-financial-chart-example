@@ -76,9 +76,9 @@
                                                       UpperStroke="#e95ddc"
                                                       LowerStroke="#e95ddc" />
                 </dxc:BollingerBandsIndicator.Style>
-                <dxc:CandleStickSeries.HintOptions>
+                <dxc:BollingerBandsIndicator.HintOptions>
                     <dxc:SeriesCrosshairOptions PointTextPattern="{}{S}: &#10;Upper: ${UV$###.##}&#10;Value: ${V$###.##}&#10;Lower: ${LV$###.##}" />
-                </dxc:CandleStickSeries.HintOptions>
+                </dxc:BollingerBandsIndicator.HintOptions>
             </dxc:BollingerBandsIndicator>
                 
             <dxc:MovingAverageIndicator DisplayName="SMA 50"
@@ -89,9 +89,9 @@
                 <dxc:MovingAverageIndicator.Style>
                     <dxc:BollingerBandsIndicatorStyle Stroke="#9859c9" />
                 </dxc:MovingAverageIndicator.Style>
-                <dxc:CandleStickSeries.HintOptions>
+                <dxc:MovingAverageIndicator.HintOptions>
                     <dxc:SeriesCrosshairOptions PointTextPattern="{}{S}: ${V$###.##}" />
-                </dxc:CandleStickSeries.HintOptions>
+                </dxc:MovingAverageIndicator.HintOptions>
             </dxc:MovingAverageIndicator>
                 
         </dxc:ChartView.Series>
