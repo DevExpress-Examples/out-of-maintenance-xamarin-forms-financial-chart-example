@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
-    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="20.2.2-beta-20274" />
+    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="20.2.3" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
