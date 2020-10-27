@@ -9,8 +9,8 @@ namespace FinancialChartExample.ViewModels {
         public MainViewModel() {
             StockPrices = StockData.GetStockPrices();
             VisualRange = new DateTimeRange() {
-                VisualMin = new System.DateTime(2020, 02, 10),
-                VisualMax = new System.DateTime(2020, 05, 10)
+                VisualMin = new System.DateTime(2020, 04, 07),
+                VisualMax = new System.DateTime(2020, 07, 07)
             };
         }
     }
